@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label_lng = new System.Windows.Forms.Label();
             this.label_lat = new System.Windows.Forms.Label();
             this.label_alt = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +46,7 @@
             this.label_lng.AutoSize = true;
             this.label_lng.Cursor = System.Windows.Forms.Cursors.Default;
             this.label_lng.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_lng.Location = new System.Drawing.Point(17, 14);
+            this.label_lng.Location = new System.Drawing.Point(3, 15);
             this.label_lng.Name = "label_lng";
             this.label_lng.Size = new System.Drawing.Size(78, 19);
             this.label_lng.TabIndex = 6;
@@ -53,7 +56,7 @@
             // 
             this.label_lat.AutoSize = true;
             this.label_lat.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_lat.Location = new System.Drawing.Point(193, 14);
+            this.label_lat.Location = new System.Drawing.Point(3, 51);
             this.label_lat.Name = "label_lat";
             this.label_lat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label_lat.Size = new System.Drawing.Size(65, 19);
@@ -64,7 +67,7 @@
             // 
             this.label_alt.AutoSize = true;
             this.label_alt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_alt.Location = new System.Drawing.Point(349, 14);
+            this.label_alt.Location = new System.Drawing.Point(3, 88);
             this.label_alt.Name = "label_alt";
             this.label_alt.Size = new System.Drawing.Size(64, 19);
             this.label_alt.TabIndex = 8;
@@ -72,7 +75,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(66, 190);
+            this.button1.Location = new System.Drawing.Point(618, 169);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -82,19 +85,56 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.label_lng);
             this.panel1.Controls.Add(this.label_lat);
             this.panel1.Controls.Add(this.label_alt);
-            this.panel1.Location = new System.Drawing.Point(12, 32);
+            this.panel1.Location = new System.Drawing.Point(618, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 48);
+            this.panel1.Size = new System.Drawing.Size(188, 118);
             this.panel1.TabIndex = 10;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(500, 325);
+            this.splitter1.TabIndex = 11;
+            this.splitter1.TabStop = false;
+            // 
+            // gMapControl1
+            // 
+            this.gMapControl1.Bearing = 0F;
+            this.gMapControl1.CanDragMap = true;
+            this.gMapControl1.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapControl1.GrayScaleMode = false;
+            this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapControl1.LevelsKeepInMemmory = 5;
+            this.gMapControl1.Location = new System.Drawing.Point(12, 12);
+            this.gMapControl1.MarkersEnabled = true;
+            this.gMapControl1.MaxZoom = 2;
+            this.gMapControl1.MinZoom = 2;
+            this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapControl1.Name = "gMapControl1";
+            this.gMapControl1.NegativeMode = false;
+            this.gMapControl1.PolygonsEnabled = true;
+            this.gMapControl1.RetryLoadTile = 0;
+            this.gMapControl1.RoutesEnabled = true;
+            this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapControl1.SelectedArea = ((GMap.NET.RectLatLng)(resources.GetObject("gMapControl1.SelectedArea")));
+            this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapControl1.ShowTileGridLines = false;
+            this.gMapControl1.Size = new System.Drawing.Size(478, 301);
+            this.gMapControl1.TabIndex = 12;
+            this.gMapControl1.Zoom = 0D;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 325);
+            this.ClientSize = new System.Drawing.Size(872, 325);
+            this.Controls.Add(this.gMapControl1);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -113,6 +153,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Splitter splitter1;
+        private GMap.NET.WindowsForms.GMapControl gMapControl1;
     }
 }
 

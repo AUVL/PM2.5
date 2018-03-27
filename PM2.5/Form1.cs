@@ -8,6 +8,9 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Threading;
+using GMap.NET;
+using GMap.NET.MapProviders;
+
 
 namespace PM2._5
 {
@@ -50,11 +53,11 @@ namespace PM2._5
                             {
                                 this.Invoke(new Action(delegate ()
                                 {
-                                    //label_lng.Text = myData.GetString(2);
                                     label_lng.Text = "Longitude : " + myData.GetString(2);
                                     label_lat.Text = "Latitude : " + myData.GetString(3);
                                     label_alt.Text = "Altitude : " + myData.GetString(4);
-                                }));
+                                }
+                                ));
                             }
                         }
                         //myData.Close();
@@ -73,6 +76,5 @@ namespace PM2._5
             a.IsBackground = true;
             a.Start();
         }
-        
     }
 }
