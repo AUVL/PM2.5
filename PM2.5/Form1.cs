@@ -12,6 +12,9 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using System.IO;
+using System.Reflection;
+using Microsoft.Win32;
 
 namespace PM2._5
 {
@@ -20,7 +23,8 @@ namespace PM2._5
         public Form1()
         {
             InitializeComponent();
-
+            /*
+            //map setup
             map.MapProvider = GMapProviders.GoogleMap;
             map.DragButton = MouseButtons.Left;
             //map.MapProvider = GMapProviders.BingMap;
@@ -29,7 +33,12 @@ namespace PM2._5
             map.MaxZoom = 100;
             map.Zoom = 15;
             map.Position = new PointLatLng(23.703108, 120.430151); //初始地圖
-
+            */
+            //webBrowser show google map javascript
+            var appName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
+            using (var Key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
+            Key.SetValue(appName, 99999, RegistryValueKind.DWord);
+            webBrowser1.Url = new Uri("http://140.130.20.168/googlemap/mapdata6.html");
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -37,6 +46,7 @@ namespace PM2._5
         private void Mainloop()
         {
             DateTime Repload = DateTime.Now;
+
             while (true)
             {
                 if (Repload.AddSeconds(1) <= DateTime.Now)
@@ -70,7 +80,7 @@ namespace PM2._5
                                     //label_alt.Text = myData.GetString(4);
 
                                     //Map
-
+                                    /*
                                     double position_lng = Convert.ToDouble(label_lng.Text);
                                     double position_lat = Convert.ToDouble(label_lat.Text);
                                     PointLatLng point = new PointLatLng(position_lng, position_lat);
@@ -78,8 +88,7 @@ namespace PM2._5
                                     GMapOverlay markers = new GMapOverlay("markers");
                                     markers.Markers.Add(marker);
                                     map.Overlays.Add(markers);
-                                    
-                                    //map.Refresh();
+                                    */
                                 }
                                 ));
                             }
