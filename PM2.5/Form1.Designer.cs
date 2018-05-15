@@ -35,6 +35,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_pm = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label_angle = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label_alt = new System.Windows.Forms.Label();
             this.label_lat = new System.Windows.Forms.Label();
             this.label_lng = new System.Windows.Forms.Label();
@@ -86,6 +90,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label_pm);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label_angle);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label_alt);
             this.panel1.Controls.Add(this.label_lat);
             this.panel1.Controls.Add(this.label_lng);
@@ -94,8 +102,47 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(603, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(188, 118);
+            this.panel1.Size = new System.Drawing.Size(188, 188);
             this.panel1.TabIndex = 10;
+            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label_pm
+            // 
+            this.label_pm.AutoSize = true;
+            this.label_pm.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_pm.Location = new System.Drawing.Point(110, 124);
+            this.label_pm.Name = "label_pm";
+            this.label_pm.Size = new System.Drawing.Size(0, 19);
+            this.label_pm.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 19);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "angle :";
+            // 
+            // label_angle
+            // 
+            this.label_angle.AutoSize = true;
+            this.label_angle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_angle.Location = new System.Drawing.Point(63, 155);
+            this.label_angle.Name = "label_angle";
+            this.label_angle.Size = new System.Drawing.Size(0, 19);
+            this.label_angle.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 124);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 19);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "PM2.5 value :";
             // 
             // label_alt
             // 
@@ -126,6 +173,8 @@
             // 
             // webBrowser1
             // 
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.webBrowser1.Location = new System.Drawing.Point(12, 12);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
@@ -161,6 +210,10 @@
         private System.Windows.Forms.Label label_lat;
         private System.Windows.Forms.Label label_lng;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Label label_angle;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_pm;
+        private System.Windows.Forms.Label label5;
     }
 }
 
