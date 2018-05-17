@@ -65,7 +65,7 @@ namespace PM2._5
                     conn.Open();
                     
                     //進行select
-                    string SQL = "select * from projectdata1 order by id desc limit 0,1 ";
+                    string SQL = "select * from pythontest WHERE PM IS NOT NULL order by id desc limit 0,1 ";  //資料庫名稱
 
                     if (Repload.AddSeconds(1) < DateTime.Now)
                     {
@@ -75,23 +75,42 @@ namespace PM2._5
                             MySqlDataReader myData = cmd.ExecuteReader();
                             while (myData.Read())
                             {
-                                this.Invoke(new Action(delegate ()
+                                //float lat = (float) Convert.ToDouble(myData.GetString(2));
+                                //if (myData.GetString(4) == "NULL")
                                 {
+                                    this.Invoke(new Action(delegate ()
+                                    {
                                     //Information
-                                    label_lat.Text = myData.GetString(2);
-                                    label_lng.Text = myData.GetString(3);
-                                    label_pm.Text = myData.GetString(4);
+                                    //label_lat.Text = myData.GetString(2);
+                                    //label_lng.Text = myData.GetString(3);
+                                    //label_pm.Text = "NULL";
                                     //label_alt.Text = myData.GetString(5);
+                                    }
+                                    ));
                                 }
-                                ));
+                                
+                                //else
+                                {
+                                    this.Invoke(new Action(delegate ()
+                                    {
+                                        //Information
+                                        label_lat.Text = myData.GetString(2);
+                                        label_lng.Text = myData.GetString(3);
+                                        label_pm.Text = myData.GetString(4);
+                                        //label_alt.Text = myData.GetString(5);
+                                    }
+                                    ));
+                                    
+                                }
                             }
+                            myData.Close();
                         }
                         catch (MySql.Data.MySqlClient.MySqlException ex)
                         {
                             Console.WriteLine("Error " + ex.Number + " : " + ex.Message);
                         }
                     }
-                    //myData.Close();
+                    
                     Repload = DateTime.Now;
                 }
             }
@@ -105,7 +124,6 @@ namespace PM2._5
             Thread b = new Thread(new ThreadStart(Data_Main));
             b.IsBackground = true;
             b.Start();
-            
         }
         private void Data_Main()
         {
@@ -118,18 +136,17 @@ namespace PM2._5
         }
         private void angle()
         {
-            string dbHost = "140.130.20.168";//資料庫位址
-            string dbUser = "gpspm2.5";//資料庫使用者名稱
-            string dbPass = "gpspm2.5";//資料庫使用者密碼
-            string dbName = "gpspm25";//資料庫名稱
-                                      // 如果有特殊的編碼在database後面請加上;CharSet=編碼, utf8請使用utf8_general_ci
+            string dbHost = "140.130.20.168";   //資料庫位址
+            string dbUser = "gpspm2.5";         //資料庫使用者名稱
+            string dbPass = "gpspm2.5";         //資料庫使用者密碼
+            string dbName = "gpspm25";          //資料庫名稱          // 如果有特殊的編碼在database後面請加上;CharSet=編碼, utf8請使用utf8_general_ci
+
             string connStr = "server=" + dbHost + ";uid=" + dbUser + ";pwd=" + dbPass + ";database=" + dbName;
             MySqlConnection conn = new MySqlConnection(connStr);
-
             // 連線到資料庫
             conn.Open();
             //計算有幾筆資料
-            string SQL1 = "select count(*) from projectdata1  ";
+            string SQL1 = "select count(*) from pythontest WHERE PM IS NOT NULL";  //資料庫名稱
             MySqlCommand cmd1 = new MySqlCommand(SQL1, conn);
             int count = (int)(long)cmd1.ExecuteScalar();
             Console.WriteLine("count " + count);
@@ -147,11 +164,9 @@ namespace PM2._5
             double[] pmvalue = new double[count];
             for (a = 0; a < count; a++)
             {
-                string SQL = "select* from projectdata1 order by id desc limit " + a + ",1 ";
-                
+                string SQL = "select* from pythontest WHERE PM IS NOT NULL order by id desc limit " + a + ",1 ";   //資料庫名稱
                 MySqlCommand cmd = new MySqlCommand(SQL, conn);
                 MySqlDataReader myData = cmd.ExecuteReader();
-
                 if (!myData.HasRows)
                 {
                     // 如果沒有資料,顯示沒有資料的訊息
@@ -498,20 +513,17 @@ namespace PM2._5
                         }
                     }
                     myData.Close();
-
                 }
             }
-
             if (3 <= i)
             {
                 Console.WriteLine(latvalue[1] + "  " + lngvalue[1]);
-                
             }
             this.Invoke(new Action(delegate ()
             {
                 label_angle.Text = Tan.ToString("0.00");
             }));
-                Console.WriteLine(Tan.ToString("0.00"));
+            Console.WriteLine(Tan.ToString("0.00"));
         }
     }
 }
