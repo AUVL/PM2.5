@@ -47,10 +47,7 @@ namespace PM2._5
         }
         private void Mainloop()
         {
-            var appName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
-            using (var Key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
-            Key.SetValue(appName, 99999, RegistryValueKind.DWord);
-            webBrowser1.Url = new Uri(""+htmlSelect.Text);
+
             DateTime Repload = DateTime.Now;
             while (true)
             {
@@ -66,7 +63,7 @@ namespace PM2._5
                     conn.Open();
                     
                     //進行select
-                    string SQL = "select * from "+dbSelect.Text+" WHERE PM IS NOT NULL order by id desc limit 0,1 ";  //資料庫名稱
+                    string SQL = "select * from " +dbSelect.Text+ " WHERE PM IS NOT NULL order by id desc limit 0,1 ";  //資料庫名稱
 
                     if (Repload.AddSeconds(1) < DateTime.Now)
                     {
@@ -76,21 +73,6 @@ namespace PM2._5
                             MySqlDataReader myData = cmd.ExecuteReader();
                             while (myData.Read())
                             {
-                                //float lat = (float) Convert.ToDouble(myData.GetString(2));
-                                //if (myData.GetString(4) == "NULL")
-                                {
-                                    this.Invoke(new Action(delegate ()
-                                    {
-                                    //Information
-                                    //label_lat.Text = myData.GetString(2);
-                                    //label_lng.Text = myData.GetString(3);
-                                    //label_pm.Text = "NULL";
-                                    //label_alt.Text = myData.GetString(5);
-                                    }
-                                    ));
-                                }
-                                
-                                //else
                                 {
                                     this.Invoke(new Action(delegate ()
                                     {
@@ -99,6 +81,12 @@ namespace PM2._5
                                         label_lng.Text = myData.GetString(3);
                                         label_pm.Text = myData.GetString(4);
                                         //label_alt.Text = myData.GetString(5);
+
+                                        //Map
+                                        var appName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
+                                        using (var Key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
+                                        Key.SetValue(appName, 99999, RegistryValueKind.DWord);
+                                        webBrowser1.Url = new Uri("http://140.130.20.168/googlemap/" + htmlSelect.Text + ".html");
                                     }
                                     ));
                                     
@@ -147,7 +135,7 @@ namespace PM2._5
             // 連線到資料庫
             conn.Open();
             //計算有幾筆資料
-            string SQL1 = "select count(*) from "+dbSelect.Text+" WHERE PM IS NOT NULL";  //資料庫名稱
+            string SQL1 = "select count(*) from " +dbSelect.Text+ " WHERE PM IS NOT NULL";  //資料庫名稱
             MySqlCommand cmd1 = new MySqlCommand(SQL1, conn);
             int count = (int)(long)cmd1.ExecuteScalar();
             Console.WriteLine("count " + count);
@@ -165,7 +153,7 @@ namespace PM2._5
             double[] pmvalue = new double[count];
             for (a = 0; a < count; a++)
             {
-                string SQL = "select* from "+dbSelect.Text+" WHERE PM IS NOT NULL order by id desc limit "+a+",1 ";   //資料庫名稱
+                string SQL = "select* from " +dbSelect.Text+ " WHERE PM IS NOT NULL order by id desc limit "+a+",1 ";   //資料庫名稱
                 MySqlCommand cmd = new MySqlCommand(SQL, conn);
                 MySqlDataReader myData = cmd.ExecuteReader();
                 if (!myData.HasRows)
