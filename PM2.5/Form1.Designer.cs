@@ -43,6 +43,10 @@
             this.label_lat = new System.Windows.Forms.Label();
             this.label_lng = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.dbSelect = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.htmlSelect = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,11 +84,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(603, 38);
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(607, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
+            this.button1.Text = "Connect";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -100,11 +105,10 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(603, 66);
+            this.panel1.Location = new System.Drawing.Point(607, 160);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(188, 188);
+            this.panel1.Size = new System.Drawing.Size(188, 187);
             this.panel1.TabIndex = 10;
-            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label_pm
             // 
@@ -182,11 +186,51 @@
             this.webBrowser1.Size = new System.Drawing.Size(556, 554);
             this.webBrowser1.TabIndex = 13;
             // 
+            // dbSelect
+            // 
+            this.dbSelect.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dbSelect.Location = new System.Drawing.Point(607, 34);
+            this.dbSelect.Name = "dbSelect";
+            this.dbSelect.Size = new System.Drawing.Size(171, 23);
+            this.dbSelect.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(603, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 19);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "DB_Select : ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(603, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 19);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "HTML_Select : ";
+            // 
+            // htmlSelect
+            // 
+            this.htmlSelect.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.htmlSelect.Location = new System.Drawing.Point(607, 86);
+            this.htmlSelect.Name = "htmlSelect";
+            this.htmlSelect.Size = new System.Drawing.Size(323, 23);
+            this.htmlSelect.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 578);
+            this.ClientSize = new System.Drawing.Size(957, 578);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.htmlSelect);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dbSelect);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
@@ -196,6 +240,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -214,6 +259,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_pm;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox dbSelect;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox htmlSelect;
     }
 }
 
