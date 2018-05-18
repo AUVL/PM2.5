@@ -39,8 +39,6 @@ namespace PM2._5
             map.Position = new PointLatLng(23.703108, 120.430151); //初始地圖
             */
             //webBrowser show google map javascript
-
-
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -513,6 +511,12 @@ namespace PM2._5
                 label_angle.Text = Tan.ToString("0.00");
             }));
             Console.WriteLine(Tan.ToString("0.00"));
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //this.Close();
+            this.Dispose();
         }
     }
 }
