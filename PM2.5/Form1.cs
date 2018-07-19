@@ -38,14 +38,14 @@ namespace PM2._5
         {
             InitializeComponent();
             videodisplay = new Control() { BackColor = Color.Beige };
-            startVideoButton = button2;
+            //startVideoButton = button2;
 
             this.SuspendLayout();
             this.Controls.Add(videodisplay);
             this.Controls.Add(startVideoButton);
             this.ResumeLayout();
 
-            startVideoButton.Click += new System.EventHandler(button2_Click);
+            //startVideoButton.Click += new System.EventHandler(button2_Click);
             ResizeControls();
             //startVideoButton.Click += new System.EventHandler(button1_Click);
             /*
@@ -61,9 +61,7 @@ namespace PM2._5
             */
             //webBrowser show google map javascript
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
+      
         private void button1_Click(object sender, EventArgs e)
         {
             Thread a = new Thread(new ThreadStart(Mainloop));
@@ -152,16 +150,21 @@ namespace PM2._5
         private void ResizeControls()
         {
             //    Terrible, i know. But: No real-world application, just forbugreporting
-            int w = 600;
+            videodisplay.Top = 12;
+            videodisplay.Left = 575;
+            //videodisplay.Width = this.ClientSize.Width - 840;
+            videodisplay.Width = 640;
+            videodisplay.Height = 480;
+            /*int w = this.ClientSize.Width-850;
             int h = 400;
 
-            int displayH = h - (startVideoButton.Height * 1);
+            int displayH = h - (button2.Height * 1);
             if (displayH < 0) { displayH = 0; }
 
             if (videodisplay.Top != 0) { videodisplay.Top = 0; }
             if (videodisplay.Left != 850) { videodisplay.Left = 850; }
             if (videodisplay.Width != w) { videodisplay.Width = w; }
-            if (videodisplay.Height != h) { videodisplay.Height = h; }
+            if (videodisplay.Height != h) { videodisplay.Height = h; }*/
         }
         private void InitializeGstreamer()
         {

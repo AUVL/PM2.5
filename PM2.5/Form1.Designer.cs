@@ -50,7 +50,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(624, 133);
+            this.button1.Location = new System.Drawing.Point(31, 467);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -70,7 +70,7 @@
             // dbSelect
             // 
             this.dbSelect.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dbSelect.Location = new System.Drawing.Point(624, 36);
+            this.dbSelect.Location = new System.Drawing.Point(31, 370);
             this.dbSelect.Name = "dbSelect";
             this.dbSelect.Size = new System.Drawing.Size(171, 23);
             this.dbSelect.TabIndex = 14;
@@ -79,7 +79,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(620, 14);
+            this.label6.Location = new System.Drawing.Point(27, 348);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 19);
             this.label6.TabIndex = 15;
@@ -89,7 +89,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(620, 66);
+            this.label7.Location = new System.Drawing.Point(27, 400);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 19);
             this.label7.TabIndex = 17;
@@ -98,7 +98,7 @@
             // htmlSelect
             // 
             this.htmlSelect.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.htmlSelect.Location = new System.Drawing.Point(624, 88);
+            this.htmlSelect.Location = new System.Drawing.Point(31, 422);
             this.htmlSelect.Name = "htmlSelect";
             this.htmlSelect.Size = new System.Drawing.Size(171, 23);
             this.htmlSelect.TabIndex = 16;
@@ -191,7 +191,7 @@
             this.panel1.Controls.Add(this.label_lng);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(600, 162);
+            this.panel1.Location = new System.Drawing.Point(240, 351);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 185);
             this.panel1.TabIndex = 10;
@@ -199,7 +199,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(720, 133);
+            this.button2.Location = new System.Drawing.Point(127, 467);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 18;
@@ -211,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1459, 393);
+            this.ClientSize = new System.Drawing.Size(1224, 538);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.htmlSelect);
@@ -223,7 +223,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
