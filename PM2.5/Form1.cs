@@ -177,6 +177,7 @@ namespace PM2._5
         {
             mMainLoop = new GLib.MainLoop();
             mMainGlibThread = new System.Threading.Thread(mMainLoop.Run);
+            mMainGlibThread.IsBackground = true;
             mMainGlibThread.Start();
         }
         private void InitGStreamerPipeline() //位址
@@ -203,7 +204,7 @@ namespace PM2._5
             Gst.Element pipeline;
             //string command = "videotestsrc pattern=ball ! queue ! x264enc ! rtph264pay ! queue ! decodebin ! autovideosink";
             //string command = "rtspsrc location = rtsp://140.130.20.168:8554/RTSP0001 latency=0 ! application/x-rtp,encoding-name=H264,payload=96 ! rtph264depay ! decodebin ! autovideosink";
-            string command = "rtspsrc location = rtsp://140.130.20.168:8554/RTSP0001 latency=0 ! application/x-rtp,encoding-name=H264,payload=96 ! rtph264depay ! decodebin ! autovideosink";
+            string command = "rtspsrc location=rtsp://140.130.20.168:8561/H264_launch latency=0 ! application/x-rtp,encoding-name=H264,payload=127 ! rtph264depay ! decodebin ! autovideosink ";
             pipeline = Gst.Parse.Launch(command);
 
             mCurrentPipeline = new Gst.Pipeline("pipeline");
@@ -708,8 +709,8 @@ namespace PM2._5
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //this.Close();
             this.Dispose();
+            this.Close();
         }
     }
 }

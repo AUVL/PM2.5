@@ -193,7 +193,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(240, 351);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 185);
+            this.panel1.Size = new System.Drawing.Size(237, 156);
             this.panel1.TabIndex = 10;
             // 
             // button2
@@ -211,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 538);
+            this.ClientSize = new System.Drawing.Size(1224, 512);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.htmlSelect);
